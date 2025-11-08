@@ -3,7 +3,10 @@ import { WelcomeScreen } from "@/components/WelcomeScreen";
 import { ChatMessage } from "@/components/ChatMessage";
 import { ChatInput } from "@/components/ChatInput";
 import { TopicHeader } from "@/components/TopicHeader";
+import { SessionStats } from "@/components/SessionStats";
 import { useToast } from "@/hooks/use-toast";
+import { Button } from "@/components/ui/button";
+import { BarChart3 } from "lucide-react";
 
 type Message = {
   role: "user" | "assistant";
@@ -14,8 +17,31 @@ const Index = () => {
   const [topic, setTopic] = useState<string>("");
   const [messages, setMessages] = useState<Message[]>([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [showStats, setShowStats] = useState(false);
+  const [sessionStats, setSessionStats] = useState({
+    topicsCovered: 0,
+    questsCompleted: 0,
+    masteryLevel: 0,
+  });
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const { toast } = useToast();
+
+  // Track session statistics
+  useEffect(() => {
+    const updateStats = () => {
+      const allContent = messages.map(m => m.content).join(" ");
+      const questsCompleted = (allContent.match(/Mini Quest 🧩:/g) || []).length;
+      const hasCompletion = allContent.includes("100% Complete");
+      
+      setSessionStats({
+        topicsCovered: topic ? 1 : 0,
+        questsCompleted,
+        masteryLevel: hasCompletion ? 100 : Math.min(messages.length * 10, 95),
+      });
+    };
+    
+    updateStats();
+  }, [messages, topic]);
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -27,9 +53,10 @@ const Index = () => {
 
   const handleTopicSelect = (selectedTopic: string) => {
     setTopic(selectedTopic);
+    setShowStats(false);
     const welcomeMessage: Message = {
       role: "assistant",
-      content: `Perfect! Let's dive into **${selectedTopic}**.\n\nI'll guide you through this topic with clear explanations, examples, and practice questions. Feel free to ask questions at any time.\n\nWould you like me to:\n1. Start with the fundamentals\n2. See a code example right away\n3. Focus on a specific aspect\n\nWhat would you prefer?`,
+      content: `Perfect! Let's dive into **${selectedTopic}**. 🎯\n\n**Progress:** █▒▒▒▒▒▒▒▒▒ 10% Complete\n\nI'll guide you through this topic with clear explanations, examples, Mini Quests, and Memory Checkpoints. Feel free to ask questions at any time.\n\nWould you like me to:\n1. Start with the fundamentals\n2. See a code example right away\n3. Focus on a specific aspect\n\nWhat would you prefer?`,
     };
     setMessages([welcomeMessage]);
   };
@@ -184,6 +211,8 @@ const Index = () => {
   const handleClearTopic = () => {
     setTopic("");
     setMessages([]);
+    setShowStats(false);
+    setSessionStats({ topicsCovered: 0, questsCompleted: 0, masteryLevel: 0 });
   };
 
   if (!topic) {
@@ -196,6 +225,32 @@ const Index = () => {
       
       <div className="flex-1 overflow-y-auto">
         <div className="max-w-4xl mx-auto">
+          {/* Session Stats Toggle */}
+          {messages.length > 3 && (
+            <div className="sticky top-0 z-10 p-4 bg-background/95 backdrop-blur-sm border-b border-border">
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={() => setShowStats(!showStats)}
+                className="w-full"
+              >
+                <BarChart3 className="w-4 h-4 mr-2" />
+                {showStats ? "Hide" : "Show"} Session Progress
+              </Button>
+            </div>
+          )}
+
+          {/* Session Stats Display */}
+          {showStats && (
+            <div className="p-6 animate-in slide-in-from-top duration-500">
+              <SessionStats
+                topicsCovered={sessionStats.topicsCovered}
+                questsCompleted={sessionStats.questsCompleted}
+                masteryLevel={sessionStats.masteryLevel}
+              />
+            </div>
+          )}
+
           {messages.map((message, index) => (
             <ChatMessage key={index} role={message.role} content={message.content} />
           ))}
