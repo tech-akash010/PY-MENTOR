@@ -18,6 +18,7 @@ const Index = () => {
   const [messages, setMessages] = useState<Message[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [showStats, setShowStats] = useState(false);
+  const [questLoading, setQuestLoading] = useState(false);
   const [sessionStats, setSessionStats] = useState({
     topicsCovered: 0,
     questsCompleted: 0,
@@ -215,6 +216,13 @@ const Index = () => {
     setSessionStats({ topicsCovered: 0, questsCompleted: 0, masteryLevel: 0 });
   };
 
+  const handleQuestSubmit = async (solution: string) => {
+    setQuestLoading(true);
+    const submissionMessage = `Here's my solution to the Mini Quest:\n\n\`\`\`python\n${solution}\n\`\`\`\n\nPlease evaluate my code and provide feedback.`;
+    await handleSendMessage(submissionMessage);
+    setQuestLoading(false);
+  };
+
   if (!topic) {
     return (
       <div className="flex flex-col h-screen">
@@ -257,7 +265,13 @@ const Index = () => {
           )}
 
           {messages.map((message, index) => (
-            <ChatMessage key={index} role={message.role} content={message.content} />
+            <ChatMessage 
+              key={index} 
+              role={message.role} 
+              content={message.content}
+              onQuestSubmit={message.role === "assistant" ? handleQuestSubmit : undefined}
+              isQuestLoading={questLoading}
+            />
           ))}
           {isLoading && messages[messages.length - 1]?.role === "user" && (
             <div className="flex gap-4 p-6 bg-card">

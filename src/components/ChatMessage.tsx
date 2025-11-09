@@ -1,14 +1,17 @@
-import { User, Bot, Zap, CheckCircle2 } from "lucide-react";
+import { User, Bot } from "lucide-react";
 import { cn } from "@/lib/utils";
 import ReactMarkdown from "react-markdown";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { vscDarkPlus } from "react-syntax-highlighter/dist/esm/styles/prism";
 import { Card } from "@/components/ui/card";
 import { ProgressBar } from "./ProgressBar";
+import { MiniQuest } from "./MiniQuest";
 
 interface ChatMessageProps {
   role: "user" | "assistant";
   content: string;
+  onQuestSubmit?: (solution: string) => void;
+  isQuestLoading?: boolean;
 }
 
 const parseProgressBar = (text: string): { before: string; progress: number; after: string } | null => {
@@ -30,14 +33,21 @@ const parseProgressBar = (text: string): { before: string; progress: number; aft
   return null;
 };
 
-export const ChatMessage = ({ role, content }: ChatMessageProps) => {
+export const ChatMessage = ({ role, content, onQuestSubmit, isQuestLoading }: ChatMessageProps) => {
   const isUser = role === "user";
   const progressData = !isUser ? parseProgressBar(content) : null;
-  const displayContent = progressData ? progressData.before + progressData.after : content;
+  
+  // Parse mini quest
+  const questMatch = content.match(/\*\*Mini Quest 🧩:\*\*\s*(.+?)(?=\n\n|\*\*|$)/s);
+  const hasMiniQuest = !!questMatch;
+  const questText = questMatch ? questMatch[1].trim() : "";
+  
+  // Remove quest from display content
+  let displayContent = progressData ? progressData.before + progressData.after : content;
+  if (questMatch) {
+    displayContent = displayContent.replace(/\*\*Mini Quest 🧩:\*\*\s*.+?(?=\n\n|\*\*|$)/s, "");
+  }
 
-  // Check for special highlights
-  const hasMiniQuest = content.includes("**Mini Quest 🧩:**");
-  const hasMemoryCheckpoint = content.includes("**Memory Checkpoint 📋:**");
   const hasCompletion = content.includes("🎉") && content.includes("100% Complete");
 
   return (
@@ -51,14 +61,11 @@ export const ChatMessage = ({ role, content }: ChatMessageProps) => {
       <div
         className={cn(
           "flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center",
-          isUser ? "bg-primary" : "bg-accent",
-          hasCompletion && "bg-gradient-to-br from-accent to-primary animate-pulse"
+          isUser ? "bg-primary" : "bg-accent"
         )}
       >
         {isUser ? (
           <User className="w-5 h-5 text-primary-foreground" />
-        ) : hasCompletion ? (
-          <CheckCircle2 className="w-5 h-5 text-white" />
         ) : (
           <Bot className="w-5 h-5 text-accent-foreground" />
         )}
@@ -78,13 +85,6 @@ export const ChatMessage = ({ role, content }: ChatMessageProps) => {
               label="Your Progress"
             />
           </Card>
-        )}
-
-        {hasMiniQuest && (
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent/10 border border-accent/30">
-            <Zap className="w-4 h-4 text-accent" />
-            <span className="text-sm font-medium text-accent">Mini Quest Challenge</span>
-          </div>
         )}
 
         <div className="prose prose-sm max-w-none text-foreground">
@@ -128,6 +128,14 @@ export const ChatMessage = ({ role, content }: ChatMessageProps) => {
             {displayContent}
           </ReactMarkdown>
         </div>
+        
+        {hasMiniQuest && onQuestSubmit && (
+          <MiniQuest 
+            questText={questText}
+            onSubmit={onQuestSubmit}
+            isLoading={isQuestLoading}
+          />
+        )}
       </div>
     </div>
   );
