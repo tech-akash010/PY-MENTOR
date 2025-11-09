@@ -216,7 +216,12 @@ const Index = () => {
   };
 
   if (!topic) {
-    return <WelcomeScreen onTopicSelect={handleTopicSelect} />;
+    return (
+      <div className="flex flex-col h-screen">
+        <WelcomeScreen onTopicSelect={handleTopicSelect} />
+        <ChatInput onSend={handleSendMessage} isLoading={isLoading} />
+      </div>
+    );
   }
 
   return (
