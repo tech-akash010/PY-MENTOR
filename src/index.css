@@ -8,74 +8,74 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* Slate & Violet - Light Mode (Elegant Soft) */
-    --background: 214 32% 91%; /* Light Gray */
-    --foreground: 240 21% 15%; /* Dark Slate */
+    /* Midnight Blue - Light Mode (Professional & Calm) */
+    --background: 220 13% 95%; /* Light background for light mode */
+    --foreground: 213 50% 11%; /* Deep Navy */
 
     --card: 0 0% 98%;
-    --card-foreground: 240 21% 15%;
+    --card-foreground: 213 50% 11%;
 
     --popover: 0 0% 98%;
-    --popover-foreground: 240 21% 15%;
+    --popover-foreground: 213 50% 11%;
 
-    --primary: 258 90% 66%; /* Soft Violet #8B5CF6 */
-    --primary-foreground: 214 32% 91%;
+    --primary: 217 91% 60%; /* Sky Accent #3B82F6 */
+    --primary-foreground: 220 13% 91%;
 
-    --secondary: 240 18% 20%; /* Muted Charcoal */
-    --secondary-foreground: 214 32% 91%;
+    --secondary: 188 86% 53%; /* Soft Teal #22D3EE */
+    --secondary-foreground: 213 50% 11%;
 
-    --muted: 215 20% 85%;
-    --muted-foreground: 215 20% 45%;
+    --muted: 220 13% 85%;
+    --muted-foreground: 220 13% 40%;
 
-    --accent: 201 94% 43%; /* Aqua Blue #068BD4 */
-    --accent-foreground: 214 32% 91%;
+    --accent: 188 86% 53%; /* Soft Teal */
+    --accent-foreground: 213 50% 11%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 215 20% 80%;
-    --input: 215 20% 80%;
-    --ring: 258 90% 66%;
+    --border: 220 13% 80%;
+    --input: 220 13% 80%;
+    --ring: 217 91% 60%;
 
     --radius: 0.75rem;
 
     /* Code block styling */
-    --code-bg: 240 21% 15%;
-    --code-text: 214 32% 91%;
+    --code-bg: 213 50% 11%;
+    --code-text: 220 13% 91%;
     
     /* Transitions */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .dark {
-    /* Slate & Violet - Dark Mode (Elegant & Youthful) */
-    --background: 240 21% 15%; /* Dark Slate #1E1E2E */
-    --foreground: 214 32% 91%; /* Light Gray #E2E8F0 */
+    /* Midnight Blue - Dark Mode (Modern Learning Vibe) */
+    --background: 213 50% 11%; /* Deep Navy #0E1A2A */
+    --foreground: 220 13% 91%; /* Light Gray #E5E7EB */
 
-    --card: 240 18% 20%; /* Muted Charcoal #2A2A3C */
-    --card-foreground: 214 32% 91%;
+    --card: 215 47% 16%; /* Space Blue #16263D */
+    --card-foreground: 220 13% 91%;
 
-    --popover: 240 18% 20%;
-    --popover-foreground: 214 32% 91%;
+    --popover: 215 47% 16%;
+    --popover-foreground: 220 13% 91%;
 
-    --primary: 258 90% 66%; /* Soft Violet #8B5CF6 */
-    --primary-foreground: 214 32% 91%;
+    --primary: 217 91% 60%; /* Sky Accent #3B82F6 */
+    --primary-foreground: 220 13% 91%;
 
-    --secondary: 240 18% 25%;
-    --secondary-foreground: 214 32% 91%;
+    --secondary: 188 86% 53%; /* Soft Teal #22D3EE */
+    --secondary-foreground: 213 50% 11%;
 
-    --muted: 240 18% 22%;
-    --muted-foreground: 215 20% 65%; /* Medium Gray #94A3B8 */
+    --muted: 215 47% 20%;
+    --muted-foreground: 220 13% 65%; /* Cool Gray #9CA3AF */
 
-    --accent: 201 94% 43%; /* Aqua Blue #068BD4 */
-    --accent-foreground: 214 32% 91%;
+    --accent: 188 86% 53%; /* Soft Teal */
+    --accent-foreground: 213 50% 11%;
 
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 240 18% 25%;
-    --input: 240 18% 25%;
-    --ring: 258 90% 70%;
+    --border: 215 47% 20%;
+    --input: 215 47% 20%;
+    --ring: 217 91% 65%;
   }
 }
 
