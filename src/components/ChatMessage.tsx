@@ -53,31 +53,31 @@ export const ChatMessage = ({ role, content, onQuestSubmit, isQuestLoading }: Ch
   return (
     <div
       className={cn(
-        "flex gap-4 p-6 animate-in fade-in slide-in-from-bottom-4 duration-500",
+        "flex gap-3 sm:gap-4 p-4 sm:p-6 animate-in fade-in slide-in-from-bottom-4 duration-500",
         isUser ? "bg-background" : "bg-card",
         hasCompletion && "bg-gradient-to-br from-accent/10 to-primary/10"
       )}
     >
       <div
         className={cn(
-          "flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center",
+          "flex-shrink-0 w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center",
           isUser ? "bg-primary" : "bg-accent"
         )}
       >
         {isUser ? (
-          <User className="w-5 h-5 text-primary-foreground" />
+          <User className="w-4 h-4 sm:w-5 sm:h-5 text-primary-foreground" />
         ) : (
-          <Bot className="w-5 h-5 text-accent-foreground" />
+          <Bot className="w-4 h-4 sm:w-5 sm:h-5 text-accent-foreground" />
         )}
       </div>
-      <div className="flex-1 space-y-4 overflow-hidden">
-        <div className="font-semibold text-foreground">
+      <div className="flex-1 space-y-3 sm:space-y-4 overflow-hidden">
+        <div className="font-semibold text-sm sm:text-base text-foreground">
           {isUser ? "You" : "Python Tutor"}
         </div>
         
         {progressData && (
           <Card className={cn(
-            "p-4 border-accent/30 bg-gradient-to-r from-accent/5 to-primary/5",
+            "p-3 sm:p-4 border-accent/30 bg-gradient-to-r from-accent/5 to-primary/5",
             "animate-in slide-in-from-left duration-500"
           )}>
             <ProgressBar 
@@ -87,7 +87,7 @@ export const ChatMessage = ({ role, content, onQuestSubmit, isQuestLoading }: Ch
           </Card>
         )}
 
-        <div className="prose prose-sm max-w-none text-foreground">
+        <div className="prose prose-sm max-w-none text-foreground text-sm sm:text-base">
           <ReactMarkdown
             components={{
               code({ className, children, ...props }: any) {

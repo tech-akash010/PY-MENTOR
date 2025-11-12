@@ -240,14 +240,14 @@ const Index = () => {
         <div className="max-w-4xl mx-auto">
           {/* Session Stats Toggle */}
           {messages.length > 3 && (
-            <div className="sticky top-0 z-10 p-4 bg-background/95 backdrop-blur-sm border-b border-border">
+            <div className="sticky top-0 z-10 p-3 sm:p-4 bg-background/95 backdrop-blur-sm border-b border-border">
               <Button
                 variant="outline"
                 size="sm"
                 onClick={() => setShowStats(!showStats)}
-                className="w-full"
+                className="w-full text-xs sm:text-sm"
               >
-                <BarChart3 className="w-4 h-4 mr-2" />
+                <BarChart3 className="w-3 h-3 sm:w-4 sm:h-4 mr-2" />
                 {showStats ? "Hide" : "Show"} Session Progress
               </Button>
             </div>
@@ -255,7 +255,7 @@ const Index = () => {
 
           {/* Session Stats Display */}
           {showStats && (
-            <div className="p-6 animate-in slide-in-from-top duration-500">
+            <div className="p-4 sm:p-6 animate-in slide-in-from-top duration-500">
               <SessionStats
                 topicsCovered={sessionStats.topicsCovered}
                 questsCompleted={sessionStats.questsCompleted}
@@ -274,13 +274,13 @@ const Index = () => {
             />
           ))}
           {isLoading && messages[messages.length - 1]?.role === "user" && (
-            <div className="flex gap-4 p-6 bg-card">
-              <div className="flex-shrink-0 w-10 h-10 rounded-full bg-accent flex items-center justify-center">
-                <div className="w-5 h-5 border-2 border-accent-foreground border-t-transparent rounded-full animate-spin" />
+            <div className="flex gap-3 sm:gap-4 p-4 sm:p-6 bg-card">
+              <div className="flex-shrink-0 w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-accent flex items-center justify-center">
+                <div className="w-4 h-4 sm:w-5 sm:h-5 border-2 border-accent-foreground border-t-transparent rounded-full animate-spin" />
               </div>
               <div className="flex-1">
-                <div className="font-semibold text-foreground mb-2">Python Tutor</div>
-                <div className="text-muted-foreground">Thinking...</div>
+                <div className="font-semibold text-sm sm:text-base text-foreground mb-1 sm:mb-2">Python Tutor</div>
+                <div className="text-xs sm:text-base text-muted-foreground">Thinking...</div>
               </div>
             </div>
           )}
