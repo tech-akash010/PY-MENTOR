@@ -8,74 +8,74 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* Dark Academia - Light Mode (Warm Scholarly) */
-    --background: 40 20% 94%; /* Warm Off-White */
-    --foreground: 0 0% 12%; /* Deep Charcoal */
+    /* Slate & Violet - Light Mode (Elegant Soft) */
+    --background: 214 32% 91%; /* Light Gray */
+    --foreground: 240 21% 15%; /* Dark Slate */
 
     --card: 0 0% 98%;
-    --card-foreground: 0 0% 12%;
+    --card-foreground: 240 21% 15%;
 
     --popover: 0 0% 98%;
-    --popover-foreground: 0 0% 12%;
+    --popover-foreground: 240 21% 15%;
 
-    --primary: 46 65% 52%; /* Gold Accent #D4AF37 */
-    --primary-foreground: 0 0% 12%;
+    --primary: 258 90% 66%; /* Soft Violet #8B5CF6 */
+    --primary-foreground: 214 32% 91%;
 
-    --secondary: 0 0% 20%; /* Warm Graphite */
-    --secondary-foreground: 60 56% 91%;
+    --secondary: 240 18% 20%; /* Muted Charcoal */
+    --secondary-foreground: 214 32% 91%;
 
-    --muted: 0 0% 88%;
-    --muted-foreground: 0 0% 40%;
+    --muted: 215 20% 85%;
+    --muted-foreground: 215 20% 45%;
 
-    --accent: 65 31% 49%; /* Muted Olive #9CA356 */
-    --accent-foreground: 0 0% 12%;
+    --accent: 201 94% 43%; /* Aqua Blue #068BD4 */
+    --accent-foreground: 214 32% 91%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 0 0% 85%;
-    --input: 0 0% 85%;
-    --ring: 46 65% 52%;
+    --border: 215 20% 80%;
+    --input: 215 20% 80%;
+    --ring: 258 90% 66%;
 
     --radius: 0.75rem;
 
     /* Code block styling */
-    --code-bg: 0 0% 12%;
-    --code-text: 60 56% 91%;
+    --code-bg: 240 21% 15%;
+    --code-text: 214 32% 91%;
     
     /* Transitions */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .dark {
-    /* Dark Academia - Dark Mode (Cozy & Focused) */
-    --background: 0 0% 7%; /* Deep Charcoal #121212 */
-    --foreground: 60 56% 91%; /* Cream White #F5F5DC */
+    /* Slate & Violet - Dark Mode (Elegant & Youthful) */
+    --background: 240 21% 15%; /* Dark Slate #1E1E2E */
+    --foreground: 214 32% 91%; /* Light Gray #E2E8F0 */
 
-    --card: 0 0% 12%; /* Warm Graphite #1E1E1E */
-    --card-foreground: 60 56% 91%;
+    --card: 240 18% 20%; /* Muted Charcoal #2A2A3C */
+    --card-foreground: 214 32% 91%;
 
-    --popover: 0 0% 12%;
-    --popover-foreground: 60 56% 91%;
+    --popover: 240 18% 20%;
+    --popover-foreground: 214 32% 91%;
 
-    --primary: 46 65% 52%; /* Gold Accent #D4AF37 */
-    --primary-foreground: 0 0% 12%;
+    --primary: 258 90% 66%; /* Soft Violet #8B5CF6 */
+    --primary-foreground: 214 32% 91%;
 
-    --secondary: 0 0% 20%; /* Warm Graphite Lighter */
-    --secondary-foreground: 60 56% 91%;
+    --secondary: 240 18% 25%;
+    --secondary-foreground: 214 32% 91%;
 
-    --muted: 0 0% 18%;
-    --muted-foreground: 0 0% 74%; /* Taupe Gray #BDBDBD */
+    --muted: 240 18% 22%;
+    --muted-foreground: 215 20% 65%; /* Medium Gray #94A3B8 */
 
-    --accent: 65 31% 49%; /* Muted Olive #9CA356 */
-    --accent-foreground: 0 0% 7%;
+    --accent: 201 94% 43%; /* Aqua Blue #068BD4 */
+    --accent-foreground: 214 32% 91%;
 
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 0 0% 18%;
-    --input: 0 0% 18%;
-    --ring: 46 65% 60%;
+    --border: 240 18% 25%;
+    --input: 240 18% 25%;
+    --ring: 258 90% 70%;
   }
 }
 
