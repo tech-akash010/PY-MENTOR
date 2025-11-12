@@ -8,74 +8,74 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* Professional EdTech Color Palette */
-    --background: 217 33% 97%; /* Off White #F8FAFC */
-    --foreground: 215 25% 18%; /* Charcoal #1E293B */
+    /* Dark Academia - Light Mode (Warm Scholarly) */
+    --background: 40 20% 94%; /* Warm Off-White */
+    --foreground: 0 0% 12%; /* Deep Charcoal */
 
-    --card: 0 0% 100%;
-    --card-foreground: 215 25% 18%;
+    --card: 0 0% 98%;
+    --card-foreground: 0 0% 12%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 215 25% 18%;
+    --popover: 0 0% 98%;
+    --popover-foreground: 0 0% 12%;
 
-    --primary: 221 83% 32%; /* Deep Blue #1E3A8A */
-    --primary-foreground: 217 33% 97%;
+    --primary: 46 65% 52%; /* Gold Accent #D4AF37 */
+    --primary-foreground: 0 0% 12%;
 
-    --secondary: 215 16% 47%; /* Slate Gray #64748B */
-    --secondary-foreground: 217 33% 97%;
+    --secondary: 0 0% 20%; /* Warm Graphite */
+    --secondary-foreground: 60 56% 91%;
 
-    --muted: 215 16% 47%;
-    --muted-foreground: 215 14% 34%; /* Cool Gray #475569 */
+    --muted: 0 0% 88%;
+    --muted-foreground: 0 0% 40%;
 
-    --accent: 43 96% 56%; /* Soft Gold #FBBF24 */
-    --accent-foreground: 215 25% 18%;
+    --accent: 65 31% 49%; /* Muted Olive #9CA356 */
+    --accent-foreground: 0 0% 12%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 215 20% 88%;
-    --input: 215 20% 88%;
-    --ring: 221 83% 32%;
+    --border: 0 0% 85%;
+    --input: 0 0% 85%;
+    --ring: 46 65% 52%;
 
     --radius: 0.75rem;
 
     /* Code block styling */
-    --code-bg: 220 13% 18%;
-    --code-text: 217 33% 97%;
+    --code-bg: 0 0% 12%;
+    --code-text: 60 56% 91%;
     
     /* Transitions */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .dark {
-    /* Dark mode using Midnight Blue */
-    --background: 222 47% 11%; /* Midnight Blue #0F172A */
-    --foreground: 217 33% 97%;
+    /* Dark Academia - Dark Mode (Cozy & Focused) */
+    --background: 0 0% 7%; /* Deep Charcoal #121212 */
+    --foreground: 60 56% 91%; /* Cream White #F5F5DC */
 
-    --card: 215 25% 15%;
-    --card-foreground: 217 33% 97%;
+    --card: 0 0% 12%; /* Warm Graphite #1E1E1E */
+    --card-foreground: 60 56% 91%;
 
-    --popover: 215 25% 15%;
-    --popover-foreground: 217 33% 97%;
+    --popover: 0 0% 12%;
+    --popover-foreground: 60 56% 91%;
 
-    --primary: 221 83% 32%;
-    --primary-foreground: 217 33% 97%;
+    --primary: 46 65% 52%; /* Gold Accent #D4AF37 */
+    --primary-foreground: 0 0% 12%;
 
-    --secondary: 215 16% 47%;
-    --secondary-foreground: 217 33% 97%;
+    --secondary: 0 0% 20%; /* Warm Graphite Lighter */
+    --secondary-foreground: 60 56% 91%;
 
-    --muted: 215 16% 30%;
-    --muted-foreground: 215 14% 60%;
+    --muted: 0 0% 18%;
+    --muted-foreground: 0 0% 74%; /* Taupe Gray #BDBDBD */
 
-    --accent: 43 96% 56%;
-    --accent-foreground: 215 25% 18%;
+    --accent: 65 31% 49%; /* Muted Olive #9CA356 */
+    --accent-foreground: 0 0% 7%;
 
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 215 25% 20%;
-    --input: 215 25% 20%;
-    --ring: 221 83% 45%;
+    --border: 0 0% 18%;
+    --input: 0 0% 18%;
+    --ring: 46 65% 60%;
   }
 }
 
