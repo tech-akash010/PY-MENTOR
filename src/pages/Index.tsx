@@ -4,7 +4,6 @@ import { ChatMessage } from "@/components/ChatMessage";
 import { ChatInput } from "@/components/ChatInput";
 import { TopicHeader } from "@/components/TopicHeader";
 import { SessionStats } from "@/components/SessionStats";
-import { FloatingActionButton } from "@/components/FloatingActionButton";
 import { useToast } from "@/hooks/use-toast";
 import { Button } from "@/components/ui/button";
 import { BarChart3 } from "lucide-react";
@@ -229,7 +228,6 @@ const Index = () => {
       <div className="flex flex-col h-screen">
         <WelcomeScreen onTopicSelect={handleTopicSelect} />
         <ChatInput onSend={handleSendMessage} isLoading={isLoading} />
-        <FloatingActionButton />
       </div>
     );
   }
@@ -291,7 +289,6 @@ const Index = () => {
       </div>
 
       <ChatInput onSend={handleSendMessage} isLoading={isLoading} />
-      <FloatingActionButton />
     </div>
   );
 };

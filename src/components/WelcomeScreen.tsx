@@ -40,8 +40,7 @@ export const WelcomeScreen = ({ onTopicSelect }: WelcomeScreenProps) => {
                 <Button
                   key={topic.name}
                   variant="outline"
-                  className="h-auto p-3 sm:p-4 justify-start text-left glass-effect hover:scale-105 hover:shadow-[0_0_25px_hsl(var(--secondary)/0.4)] transition-all duration-300 animate-pop-up"
-                  style={{ animationDelay: `${popularTopics.indexOf(topic) * 0.1}s` }}
+                  className="h-auto p-3 sm:p-4 justify-start text-left hover:border-primary hover:bg-primary/5 transition-all duration-300"
                   onClick={() => onTopicSelect(topic.name)}
                 >
                   <div className="flex items-start gap-2 sm:gap-3 w-full">
